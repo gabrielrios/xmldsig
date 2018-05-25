@@ -60,6 +60,7 @@ module Xmldsig
 
     def calculate_digest_value
       transformed = transforms.apply(referenced_node.parent)
+      transformed = Nokogiri::XML(transformed).children[0].children[1]
       case transformed
         when String
           digest_method.digest transformed
