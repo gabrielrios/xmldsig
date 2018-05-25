@@ -59,7 +59,7 @@ module Xmldsig
     end
 
     def calculate_digest_value
-      transformed = transforms.apply(referenced_node)
+      transformed = transforms.apply(referenced_node.parent)
       case transformed
         when String
           digest_method.digest transformed
