@@ -23,14 +23,14 @@ module Xmldsig
       end
 
       if instruct
-        @document.to_xml(save_with: Nokogiri::XML::Node::SaveOptions::AS_XML)
+        @document.to_xml(:save_with => Nokogiri::XML::Node::SaveOptions::AS_XML)
       else
-        @document.to_xml(save_with: Nokogiri::XML::Node::SaveOptions::AS_XML | Nokogiri::XML::Node::SaveOptions::NO_DECLARATION)
+        @document.to_xml(:save_with => Nokogiri::XML::Node::SaveOptions::AS_XML | Nokogiri::XML::Node::SaveOptions::NO_DECLARATION)
       end
     end
 
     def signed_nodes
-      signatures.flat_map(&:references).map(&:referenced_node)
+      signatures.map(&:references).flatten.map(&:referenced_node)
     end
 
     def signatures

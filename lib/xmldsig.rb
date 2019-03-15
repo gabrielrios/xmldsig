@@ -3,6 +3,8 @@ require "openssl"
 require "base64"
 require "xmldsig/version"
 
+require 'core_ext/base64'
+
 module Xmldsig
   NAMESPACES = {
       "ds"  => "http://www.w3.org/2000/09/xmldsig#",

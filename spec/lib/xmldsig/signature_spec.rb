@@ -106,7 +106,7 @@ describe Xmldsig::Signature do
 
       it "returns false with the default validation scheme and true with the X509 serial fix scheme" do
         aggregate_failures do
-          break expect(signature.valid?(certificate)).to eq(true) if RUBY_ENGINE == 'jruby'
+          break expect(signature.valid?(certificate)).to eq(true) if defined?(RUBY_ENGINE) && RUBY_ENGINE == 'jruby'
           expect { signature.valid?(certificate) }.to raise_error Xmldsig::SchemaError, /is not a valid value of the atomic type 'xs:integer'/
           expect(signature.valid?(certificate, Xmldsig::XSD_X509_SERIAL_FIX_FILE)).to eq(true)
           expect(signature.errors).to eql []
@@ -115,7 +115,7 @@ describe Xmldsig::Signature do
     end
   end
 
-  ["sha1", "sha256", "sha384", "sha512"].each do |algorithm|
+  ["sha1", "sha256"].each do |algorithm|
     describe "sign method #{algorithm}" do
       let(:document) { Nokogiri::XML::Document.parse File.read("spec/fixtures/unsigned-#{algorithm}.xml") }
       let(:signature_node) { document.at_xpath("//ds:Signature", Xmldsig::NAMESPACES) }

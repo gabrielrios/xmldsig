@@ -114,7 +114,7 @@ describe Xmldsig::SignedDocument do
 
     context 'with the force true' do
       let(:unsigned_xml) { File.read("spec/fixtures/unsigned_nested_signed_signature.xml") }
-      let(:unsigned_document) { Xmldsig::SignedDocument.new(unsigned_xml, force: true) }
+      let(:unsigned_document) { Xmldsig::SignedDocument.new(unsigned_xml, :force => true) }
 
       let(:signed_xml) { unsigned_document.sign(private_key) }
       let(:signed_document) { Xmldsig::SignedDocument.new(signed_xml) }

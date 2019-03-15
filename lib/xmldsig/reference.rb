@@ -1,3 +1,4 @@
+require 'pry'
 module Xmldsig
   class Reference
     attr_accessor :reference, :errors, :id_attr

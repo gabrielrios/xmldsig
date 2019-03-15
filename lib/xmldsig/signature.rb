@@ -15,7 +15,7 @@ module Xmldsig
     end
 
     def errors
-      references.flat_map(&:errors) + @errors
+      references.map(&:errors).flatten + @errors
     end
 
     def sign(private_key = nil, &block)

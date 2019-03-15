@@ -4,9 +4,11 @@ source 'https://rubygems.org'
 gemspec
 
 group :test, :development do
-  gem 'simplecov'
+  # gem 'simplecov'
   gem 'rspec'
-  gem 'guard-rspec', platform: :mri
-  gem 'rb-fsevent', '~> 0.9.1'
-  gem 'rake'
+  # gem 'guard-rspec', :platform => :mri
+  # gem 'rb-fsevent', '~> 0.9.1'
+  gem 'rake', '~> 10.5'
+  gem 'pry', '0.9.12.6'
+  # gem 'ffi', '1.9.3'
 end

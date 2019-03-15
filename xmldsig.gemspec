@@ -15,8 +15,9 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
   gem.require_paths = ["lib"]
   gem.version       = Xmldsig::VERSION
-  
-  gem.required_ruby_version = '>= 1.9.2'
 
-  gem.add_dependency("nokogiri", '>= 1.6.8', '< 2.0.0')
+  # gem.required_ruby_version = '>= 1.9.2'
+
+  # gem.add_dependency("nokogiri", '>= 1.6.8', '< 2.0.0')
+  gem.add_dependency("nokogiri", "1.5.2")
 end

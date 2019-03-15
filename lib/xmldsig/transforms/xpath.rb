@@ -11,10 +11,10 @@ module Xmldsig
       end
 
       def transform
-        node.xpath(REC_XPATH_1991116_QUERY)
-          .reject { |n| !n.respond_to?(:xpath) }
-          .reject { |n| n.xpath(@xpath_query, node.namespaces) }
-          .each(&:remove)
+        node.xpath(REC_XPATH_1991116_QUERY).
+          reject { |n| !n.respond_to?(:xpath) }.
+          reject { |n| n.xpath(@xpath_query, node.namespaces) }.
+          each(&:remove)
         node
       end
     end
